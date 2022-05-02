@@ -1,0 +1,18 @@
+.caixa{
+    background-color: #A01B4A;
+}
+
+.titulo{
+   color: white !important;
+   font-weight: bold !important;
+}
+
+.botao{
+    border-color: #000 !important;
+    background-color: #5BAAC9;
+    color: #000 !important;
+}
+
+.postagens{
+    background-color: white;
+}
