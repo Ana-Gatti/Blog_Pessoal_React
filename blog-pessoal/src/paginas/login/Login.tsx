@@ -1,3 +1,4 @@
+
 import { Grid, Box, Typography, TextField, Button } from '@material-ui/core';
 import { Link, useNavigate } from 'react-router-dom';
 import { login } from '../../services/Service';
@@ -5,7 +6,7 @@ import UserLogin from '../../models/UserLogin';
 import './Login.css';
 import { useDispatch } from 'react-redux';
 import { addToken } from "../../store/tokens/actions";
-import { ChangeEvent, useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
 function Login() {
@@ -15,12 +16,13 @@ function Login() {
     const [userLogin, setUserLogin] = useState<UserLogin>(
         {
             id: 0,
+            nome: "",
             usuario: "",
             senha: "",
             token: ""
 
         }
-        )
+    )
 
     function updatedModel(e: ChangeEvent<HTMLInputElement>) {
 
@@ -41,7 +43,7 @@ function Login() {
         e.preventDefault();
         try {
             await login(`/usuarios/logar`, userLogin, setToken)
-            toast.success('Usuário logado com sucesso!! 👍', {
+            toast.success('Usuário logado com sucesso!!', {
                 position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -53,7 +55,7 @@ function Login() {
 
 
         } catch (error) {
-            toast.error('Dados do usuário inconsistentes! ❌', {
+            toast.error('Dados do usuário inconsistentes!', {
                 position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -68,7 +70,7 @@ function Login() {
     return (
         <Grid container direction='row' justifyContent='center' alignItems='center'>
             <Grid alignItems='center' xs={6}>
-                <Box paddingX={20}>
+                <Box paddingX={20} className="fundologin">
                     <form onSubmit={onSubmit}>
                         <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos1'>Entrar</Typography>
                         <TextField value={userLogin.usuario} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='usuário' variant='outlined' name='usuario' margin='normal' fullWidth />

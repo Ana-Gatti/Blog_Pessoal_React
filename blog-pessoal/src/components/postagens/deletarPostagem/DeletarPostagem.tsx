@@ -10,12 +10,15 @@ import { toast } from 'react-toastify';
 
 function DeletarPostagem() {
     let navigate = useNavigate();
-    const { id } = useParams<{ id: string }>();
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state) => state.tokens
-    );
-    const [post, setPosts] = useState<Postagem>()
 
+    );
+
+    const { id } = useParams<{ id: string }>();
+    const [post, setPosts] = useState<Postagem>()
+    
+    
     useEffect(() => {
         if (token === "") {
             toast.info('Você precisa estar logado!', {

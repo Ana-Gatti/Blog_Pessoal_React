@@ -1,28 +1,58 @@
-import React from 'react';
-import {Typography, Box, Grid, Button} from '@material-ui/core';
-import './Home.css';
+import React, { useEffect } from 'react';
+import { Typography, Box, Grid, Button } from '@material-ui/core';
 import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem';
+import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
+import './Home.css';
+import { useNavigate } from 'react-router';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../store/tokens/tokensReducer';
+import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 function Home() {
+
+    let navigate = useNavigate();
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    );
+
+    useEffect(() => {
+        if (token === "") {
+            toast.info('Você precisa estar logado!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            })
+            navigate("/login")
+
+        }
+    }, [token])
     return (
         <>
             <Grid container direction="row" justifyContent="center" alignItems="center" className='caixa'>
                 <Grid alignItems="center" item xs={6}>
                     <Box paddingX={20} >
-                        <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" className='titulo'>Seja bem vindo(a)!</Typography>
-                        <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" className='titulo'>expresse aqui os seus pensamentos e opiniões!</Typography>
+                        <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" className='titulo' >Seja bem vinde ao meu blog</Typography>
+                        <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" className='titulo' > "mulheres na tecnologia"</Typography>
                     </Box>
                     <Box display="flex" justifyContent="center">
                         <Box marginRight={1}>
+                            <ModalPostagem />
                         </Box>
-                        <Button variant= "contained" className='botao'>Ver Postagens</Button>
+                        <Link to="/posts" className="text-decorator-none">
+                            <Button variant="outlined" className='botao'>Ver Postagens</Button>
+                        </Link>
                     </Box>
                 </Grid>
-                <Grid item xs={6} >
-                    <img src="https://st.depositphotos.com/1032577/4812/i/600/depositphotos_48129893-stock-photo-frame-with-daisies-and-lettering.jpg" 
-                        alt="Imagem Tela Inicial" width="500px" height="300px"/>
+                <Grid item xs={6}>
+                    <img src="https://agenciaenlink.com.br/wp-content/uploads/2012/07/blogging-tagcloud.jpg" className="imagem01" />
                 </Grid>
-                <Grid xs={12} className='postagens'>
+                <Grid xs={12} className="imagem01">
+                    <TabPostagem />
                 </Grid>
             </Grid>
         </>

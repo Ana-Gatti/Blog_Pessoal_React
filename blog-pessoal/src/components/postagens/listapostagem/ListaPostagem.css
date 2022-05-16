@@ -1,3 +1,33 @@
 .text-decorator-none{
     text-decoration: none;
 }
+
+.btn1{
+    background-color: #7f9bd5 !important;
+}
+
+.btn2{
+    background-color: #ac9652 !important;
+    color: white !important;
+}
+
+.fundopost{
+    background-color: #43413c !important;
+    color: #c3ebeb !important;
+    font-size: 20px !important;
+    border-color: white !important;
+}
+
+.titulopost{
+    color: #ac9652;
+}
+
+.corpost{
+    color: #f1f2b7;
+    font-size: 20px !important;
+}
+
+.colortext{
+    color: white;
+    font-size: 16px !important;
+}

@@ -39,7 +39,7 @@ function Footer() {
                         <Typography variant="subtitle2" align="center" gutterBottom className='textos' >© 2022 Copyright:</Typography>
                     </Box>
                     <Box>
-                        <a target="_blank" href="https://brasil.generation.org" rel="noopener noreferrer">
+                        <a className='textos' target="_blank" href="https://brasil.generation.org" rel="noopener noreferrer">
                             <Typography variant="subtitle2" gutterBottom className='textos' align="center">brasil.generation.org</Typography>
                         </a>
                     </Box>

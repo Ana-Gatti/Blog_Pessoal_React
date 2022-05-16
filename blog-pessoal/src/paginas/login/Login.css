@@ -3,7 +3,7 @@
  }
  
  .imagem{
-     background-image: url(https://img.freepik.com/fotos-gratis/campo-de-lavanda-em-flor-ao-por-do-sol-com-uma-arvore-no-horizonte-de-valensole-provence-franca_462054-224.jpg);
+     background-image: url(data:https://1.bp.blogspot.com/-nsDUIoZJ95I/W5ly_4GS0PI/AAAAAAAAdFg/WjTfRB-JchMkKjwTHfUeDwn1TFmVlLN7ACLcBGAs/s1600/692cb63885227b1701c43db812fc8176.jpg);
      background-repeat: no-repeat;
      width: 100vh;
      min-height: 100vh;
@@ -13,4 +13,8 @@
  
  .text-decorator-none{
      text-decoration: none;
+ }
+
+ .fundologin{
+     background-color: #f8dada;
  }

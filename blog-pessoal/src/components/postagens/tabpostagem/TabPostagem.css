@@ -1,3 +1,13 @@
 .titulo{
     font-weight: bold;
+    
  }
+
+ .barra{
+     background-color: #ac9652 !important;
+     color: black !important;
+     font-weight: bold !important;
+     font-size: 30px !important;
+ }
+
+ 

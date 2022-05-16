@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormHelperText } from "@material-ui/core"
 import './CadastroPost.css';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Tema from '../../../models/Tema';
 import Postagem from '../../../models/Postagem';
 import { busca, buscaId, post, put } from '../../../services/Service';
@@ -10,12 +10,15 @@ import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
 
 function CadastroPost() {
-    let history = useNavigate();
-    const { id } = useParams<{ id: string }>();
-    const [temas, setTemas] = useState<Tema[]>([])
+    let navigate = useNavigate();
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state) => state.tokens
+
     );
+
+
+    const { id } = useParams<{ id: string }>();
+    const [temas, setTemas] = useState<Tema[]>([])
 
     useEffect(() => {
         if (token == "") {
@@ -27,9 +30,8 @@ function CadastroPost() {
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-            })
-            history("/login")
-
+            });
+            navigate("/login")
         }
     }, [token])
 
@@ -38,6 +40,7 @@ function CadastroPost() {
             id: 0,
             descricao: ''
         })
+
     const [postagem, setPostagem] = useState<Postagem>({
         id: 0,
         titulo: '',
@@ -125,7 +128,7 @@ function CadastroPost() {
     }
 
     function back() {
-        history('/posts')
+        navigate('/posts')
     }
 
     return (
@@ -153,7 +156,7 @@ function CadastroPost() {
                     </Select>
                     <FormHelperText>Escolha um tema para a postagem</FormHelperText>
                     <Button type="submit" variant="contained" color="primary">
-                        Finalizar
+                        Concluir
                     </Button>
                 </FormControl>
             </form>

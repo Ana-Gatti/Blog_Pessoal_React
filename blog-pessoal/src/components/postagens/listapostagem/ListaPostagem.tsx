@@ -11,7 +11,7 @@ import { toast } from 'react-toastify';
 
 function ListaPostagem() {
     const [posts, setPosts] = useState<Postagem[]>([])
-    let history = useNavigate();
+    let navigate = useNavigate();
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state) => state.tokens
     );
@@ -27,7 +27,7 @@ function ListaPostagem() {
                 draggable: true,
                 progress: undefined,
             })
-            history("/login")
+            navigate("/login")
 
         }
     }, [token])
@@ -51,15 +51,15 @@ function ListaPostagem() {
             {
                 posts.map(post => (
                     <Box m={2} >
-                        <Card variant="outlined">
+                        <Card variant="outlined" className="fundopost">
                             <CardContent>
-                                <Typography color="textSecondary" gutterBottom>
+                                <Typography gutterBottom className='corpost'>
                                     Postagens
                                 </Typography>
-                                <Typography variant="h5" component="h2">
+                                <Typography variant="h5" component="h2" className="fundopost">
                                     {post.titulo}
                                 </Typography>
-                                <Typography variant="body2" component="p">
+                                <Typography variant="body2" component="p" className="colortext">
                                     {post.texto}
                                 </Typography>
                                 <Typography variant="body2" component="p">
@@ -71,14 +71,14 @@ function ListaPostagem() {
 
                                     <Link to={`/formularioPostagem/${post.id}`} className="text-decorator-none" >
                                         <Box mx={1}>
-                                            <Button variant="contained" className="marginLeft" size='small' color="primary" >
+                                            <Button variant="contained" className="marginLeft , btn1 " size='small' color="primary" >
                                                 atualizar
                                             </Button>
                                         </Box>
                                     </Link>
                                     <Link to={`/deletarPostagem/${post.id}`} className="text-decorator-none">
                                         <Box mx={1}>
-                                            <Button variant="contained" size='small' color="secondary">
+                                            <Button variant="contained" size='small' className='btn2'>
                                                 deletar
                                             </Button>
                                         </Box>

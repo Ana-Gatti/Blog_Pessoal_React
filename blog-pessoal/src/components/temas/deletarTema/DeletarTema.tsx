@@ -11,10 +11,11 @@ import { toast } from 'react-toastify';
 
 function DeletarTema() {
     let navigate = useNavigate();
-    const { id } = useParams<{ id: string }>();
     const token = useSelector<TokenState, TokenState["tokens"]>(
-        (state) => state.tokens
-    );
+      (state) => state.tokens
+
+  );
+    const { id } = useParams<{id: string}>();
     const [tema, setTema] = useState<Tema>()
 
     useEffect(() => {
@@ -67,7 +68,7 @@ function DeletarTema() {
             draggable: true,
             progress: undefined,
         });
-        navigate('/temas')
+        navigate('/tema')
     }
 
     return (

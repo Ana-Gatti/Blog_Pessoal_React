@@ -7,18 +7,21 @@ import { buscaId, post, put } from '../../../services/Service';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 
 function CadastroTema() {
     let navigate = useNavigate();
-    const { id } = useParams<{ id: string }>();
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state) => state.tokens
+
     );
+    const { id } = useParams<{id: string}>();
     const [tema, setTema] = useState<Tema>({
         id: 0,
         descricao: ''
     })
+
 
     useEffect(() => {
         if (token == "") {
@@ -111,6 +114,11 @@ function CadastroTema() {
                 <Button type="submit" variant="contained" color="primary">
                     Finalizar
                 </Button>
+                <Link to='/temas' className='text-decorator-none'>
+                    <Button variant='contained' color='secondary' className="btnCancelar">
+                        Cancelar
+                    </Button>
+                </Link>
             </form>
         </Container>
     )
