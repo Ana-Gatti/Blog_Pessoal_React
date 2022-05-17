@@ -4,6 +4,7 @@
 
 .btn1{
     background-color: #7f9bd5 !important;
+    color: white !important;
 }
 
 .btn2{
@@ -30,4 +31,8 @@
 .colortext{
     color: white;
     font-size: 16px !important;
+}
+
+.fundo1{
+    background-color: #43413c !important;
 }

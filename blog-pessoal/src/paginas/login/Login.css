@@ -1,9 +1,10 @@
 .textos1{
     font-weight: bold !important;
+    text-decoration: none !important;
  }
  
  .imagem{
-     background-image: url(data:https://1.bp.blogspot.com/-nsDUIoZJ95I/W5ly_4GS0PI/AAAAAAAAdFg/WjTfRB-JchMkKjwTHfUeDwn1TFmVlLN7ACLcBGAs/s1600/692cb63885227b1701c43db812fc8176.jpg);
+     background-image: url(https://vipfolheados.com.br/media/wysiwyg/mulheres-com-feminismo-e-menina-poder-ilustracao_53876-43176.jpg);
      background-repeat: no-repeat;
      width: 100vh;
      min-height: 100vh;
@@ -16,5 +17,10 @@
  }
 
  .fundologin{
-     background-color: #f8dada;
+     background-color: #ffebea !important;
+ }
+
+ .btnlogar{
+     background-color: #d8407b !important;
+     color: white !important;
  }

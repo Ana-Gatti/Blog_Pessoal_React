@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
+import { ClassNames } from '@emotion/react';
 
 
 function CadastroTema() {
@@ -107,15 +108,15 @@ function CadastroTema() {
     }
 
     return (
-        <Container maxWidth="sm" className="topo">
+        <Container maxWidth="sm" className="topo , fundotema">
             <form onSubmit={onSubmit}>
-                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro tema</Typography>
+                <Typography variant="h3" className='text' component="h1" align="center" >Formulário de cadastro tema</Typography>
                 <TextField value={tema.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" fullWidth />
-                <Button type="submit" variant="contained" color="primary">
+                <Button type="submit" variant="contained" className='btn1'>
                     Finalizar
                 </Button>
                 <Link to='/temas' className='text-decorator-none'>
-                    <Button variant='contained' color='secondary' className="btnCancelar">
+                    <Button variant='contained' className="btn2">
                         Cancelar
                     </Button>
                 </Link>

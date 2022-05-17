@@ -47,15 +47,15 @@ function ListaTema() {
 
     return (
         <>
-            {
+            {   
                 temas.map(temas => (
                     <Box m={2} >
-                        <Card variant="outlined">
-                            <CardContent>
-                                <Typography color="textSecondary" gutterBottom>
+                        <Card variant="outlined" className="teste1">
+                            <CardContent className='testef'>
+                                <Typography gutterBottom className='teste'>
                                     Tema
                                 </Typography>
-                                <Typography variant="h5" component="h2">
+                                <Typography variant="h5" component="h2" className='titulotema'>
                                     {temas.descricao}
                                 </Typography>
                             </CardContent>
@@ -64,14 +64,14 @@ function ListaTema() {
 
                                     <Link to={`/formularioTema/${temas.id}`} className="text-decorator-none">
                                         <Box mx={1}>
-                                            <Button variant="contained" className="marginLeft" size='small' color="primary" >
+                                            <Button variant="contained" className="marginLeft , btn1" size='small'>
                                                 atualizar
                                             </Button>
                                         </Box>
                                     </Link>
                                     <Link to={`/deletarTema/${temas.id}`} className="text-decorator-none">
                                         <Box mx={1}>
-                                            <Button variant="contained" size='small' color="secondary">
+                                            <Button variant="contained" size='small' className='btn2'>
                                                 deletar
                                             </Button>
                                         </Box>
